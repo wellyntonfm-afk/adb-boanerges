@@ -1,0 +1,375 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Assembleia de Deus Boanerges — Carapicuíba/SP</title>
+  <meta name="description" content="Assembleia de Deus Boanerges (Carapicuíba/SP). Horários de cultos, EBD, agenda mensal e contato oficial." />
+
+  <style>
+    :root{
+      --bg:#0b1220; --bg2:#070b13; --card:rgba(255,255,255,.06);
+      --line:rgba(255,255,255,.12); --text:#eef2ff; --muted:#b8c2df;
+      --brand:#60a5fa; --brand2:#2dd4bf; --radius:18px;
+      --shadow:0 18px 46px rgba(0,0,0,.45);
+      --max:1100px;
+      --font: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+    }
+    *{box-sizing:border-box}
+    body{
+      margin:0; font-family:var(--font); color:var(--text);
+      background:
+        radial-gradient(1100px 650px at 15% -10%, rgba(96,165,250,.18), transparent 60%),
+        radial-gradient(900px 600px at 90% 0%, rgba(45,212,191,.14), transparent 60%),
+        linear-gradient(180deg, var(--bg), var(--bg2));
+    }
+    a{color:inherit; text-decoration:none}
+    .wrap{max-width:var(--max); margin:0 auto; padding:0 18px}
+    header{
+      position:sticky; top:0; z-index:50;
+      backdrop-filter: blur(10px);
+      background: rgba(11,18,32,.75);
+      border-bottom:1px solid rgba(255,255,255,.08);
+    }
+    .nav{display:flex; align-items:center; justify-content:space-between; gap:12px; padding:14px 0; flex-wrap:wrap}
+    .brand{display:flex; align-items:center; gap:12px}
+    .logo{
+      width:46px; height:46px; border-radius:999px; overflow:hidden;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.22);
+      box-shadow: 0 12px 26px rgba(0,0,0,.35);
+      flex:0 0 auto;
+    }
+    .logo img{width:100%; height:100%; object-fit:cover}
+    .brand strong{display:block; font-size:14px; letter-spacing:.4px}
+    .brand span{display:block; font-size:12px; color:var(--muted)}
+    .links{display:flex; gap:10px; flex-wrap:wrap}
+    .links a{
+      padding:10px 12px; border-radius:999px; font-size:13px; color:var(--muted);
+      border:1px solid rgba(255,255,255,.10); background: rgba(0,0,0,.14);
+      transition:.18s ease;
+    }
+    .links a:hover{transform:translateY(-1px); color:var(--text); border-color:rgba(96,165,250,.35)}
+    .cta{
+      color:#061018 !important; font-weight:900;
+      background: linear-gradient(180deg, rgba(96,165,250,.95), rgba(45,212,191,.92));
+      border-color: rgba(255,255,255,.15) !important;
+    }
+
+    .hero{padding:52px 0 18px}
+    .grid{display:grid; gap:14px; grid-template-columns: 1.2fr .8fr; align-items:stretch}
+    @media (max-width: 950px){ .grid{grid-template-columns:1fr} }
+
+    .panel{
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: linear-gradient(180deg, rgba(255,255,255,.06), rgba(255,255,255,.02));
+      box-shadow: var(--shadow);
+      overflow:hidden;
+    }
+    .panel .inner{padding:22px}
+    h1{margin:0; font-size:clamp(26px, 3vw, 42px); line-height:1.08; letter-spacing:-.5px}
+    .lead{margin:12px 0 16px; color:var(--muted); line-height:1.55}
+    .row{display:flex; gap:10px; flex-wrap:wrap}
+    .btn{
+      display:inline-flex; align-items:center; justify-content:center;
+      padding:12px 14px; border-radius:14px; font-weight:900;
+      border:1px solid rgba(255,255,255,.12);
+      background: rgba(0,0,0,.18);
+    }
+    .btn.primary{
+      color:#061018;
+      background: linear-gradient(180deg, rgba(96,165,250,.95), rgba(45,212,191,.90));
+      border-color: rgba(255,255,255,.15);
+    }
+    .chips{display:flex; flex-wrap:wrap; gap:10px; margin-top:14px}
+    .chip{
+      font-size:13px; padding:9px 12px; border-radius:999px;
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+    }
+
+    section{padding:22px 0}
+    .title{display:flex; justify-content:space-between; gap:12px; align-items:flex-end; margin-bottom:12px}
+    .title h2{margin:0; font-size:22px}
+    .title p{margin:0; color:var(--muted); font-size:13px}
+
+    .cards{display:grid; gap:14px; grid-template-columns: repeat(12,1fr)}
+    .card{
+      grid-column: span 4;
+      border-radius: var(--radius);
+      border:1px solid rgba(255,255,255,.10);
+      background: var(--card);
+      box-shadow: 0 10px 26px rgba(0,0,0,.25);
+      padding:16px;
+    }
+    .card h3{margin:0 0 8px; font-size:16px}
+    .card p{margin:0; color:var(--muted); line-height:1.55}
+    @media (max-width: 960px){ .card{grid-column: span 6} }
+    @media (max-width: 620px){ .card{grid-column: span 12} }
+
+    .item{
+      border:1px solid rgba(255,255,255,.10);
+      background: rgba(0,0,0,.16);
+      border-radius: 16px;
+      padding:14px;
+    }
+    .item strong{display:block; font-size:14px}
+    .item span{display:block; color:var(--muted); font-size:13px; margin-top:4px}
+    .list{margin:0; padding:0; list-style:none; display:flex; flex-direction:column; gap:10px}
+
+    .video{
+      width:100%; aspect-ratio:16/9;
+      border:1px solid rgba(255,255,255,.10);
+      border-radius: 18px; overflow:hidden;
+      background: rgba(0,0,0,.18);
+    }
+    iframe{width:100%; height:100%; border:0}
+
+    footer{
+      padding:24px 0 44px;
+      color:var(--muted);
+      border-top:1px solid rgba(255,255,255,.08);
+      margin-top: 16px;
+    }
+
+    .float{
+      position:fixed; right:16px; bottom:16px; z-index:80;
+    }
+    .float a{
+      display:flex; gap:10px; align-items:center;
+      border-radius: 999px; padding:12px 14px; font-weight:950;
+      border:1px solid rgba(255,255,255,.14);
+      background: rgba(0,0,0,.28);
+      box-shadow: 0 16px 34px rgba(0,0,0,.35);
+    }
+    .dot{width:10px; height:10px; border-radius:999px; background: var(--brand2); box-shadow:0 0 0 5px rgba(45,212,191,.18)}
+  </style>
+</head>
+
+<body>
+  <header>
+    <div class="wrap">
+      <div class="nav">
+        <a class="brand" href="#inicio">
+          <div class="logo"><img src="logo.jpg" alt="Logo ADB" /></div>
+          <div>
+            <strong>Assembleia de Deus Boanerges</strong>
+            <span>Carapicuíba/SP • Pr. Wellynton Nascimento • Vice Miss. Josy Maia</span>
+          </div>
+        </a>
+
+        <div class="links">
+          <a href="#horarios">Horários</a>
+          <a href="#agenda">Agenda</a>
+          <a href="#contato" class="cta">Contato</a>
+        </div>
+      </div>
+    </div>
+  </header>
+
+  <main id="inicio">
+    <section class="hero">
+      <div class="wrap">
+        <div class="grid">
+          <div class="panel">
+            <div class="inner">
+              <h1>Uma igreja séria, bíblica e acolhedora — para toda a família.</h1>
+              <p class="lead">
+                Seja bem-vindo(a) à <strong>Assembleia de Deus Boanerges</strong>. Compromisso com a Palavra, oração e cuidado pastoral.
+              </p>
+
+              <div class="row">
+                <a class="btn primary" href="#horarios">Ver horários</a>
+                <a class="btn" id="btnWhats" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
+                <a class="btn" href="https://maps.app.goo.gl/booGhqXHALLQkxF56" target="_blank" rel="noopener">Abrir no Google Maps</a>
+              </div>
+
+              <div class="chips">
+                <span class="chip">✅ EBD domingo 09:00</span>
+                <span class="chip">✅ Culto domingo 18:30</span>
+                <span class="chip">✅ Programação mensal</span>
+                <span class="chip">✅ Contato oficial</span>
+              </div>
+
+              <div style="height:14px"></div>
+
+              <div class="row" style="gap:14px">
+                <div class="item" style="flex:1; min-width:240px">
+                  <strong>Endereço</strong>
+                  <span>Rua Arari, 10 — Jardim Marilu — Carapicuíba - SP</span>
+                </div>
+                <div class="item" style="flex:1; min-width:240px">
+                  <strong>WhatsApp</strong>
+                  <span><a id="waInline" href="#" target="_blank" rel="noopener">(11) 96635-9306</a></span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <aside class="panel">
+            <div class="inner">
+              <h2 style="margin:0 0 10px; font-size:18px;">Horários fixos</h2>
+              <ul class="list">
+                <li class="item"><strong>Segunda — 19:30</strong><span>Círculo de Oração</span></li>
+                <li class="item"><strong>Quarta — 19:30</strong><span>Culto Público</span></li>
+                <li class="item"><strong>Sexta — 19:30</strong><span>Culto</span></li>
+                <li class="item"><strong>Domingo — 09:00</strong><span>Escola Bíblica Dominical (EBD)</span></li>
+                <li class="item"><strong>Domingo — 18:30</strong><span>Culto</span></li>
+              </ul>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <section id="horarios">
+      <div class="wrap">
+        <div class="title">
+          <h2>Horários de Cultos</h2>
+          <p>Informações claras e atualizadas</p>
+        </div>
+
+        <div class="cards">
+          <div class="card">
+            <h3>Segunda-feira</h3>
+            <p><strong>Círculo de Oração:</strong> 19:30</p>
+          </div>
+          <div class="card">
+            <h3>Quarta-feira</h3>
+            <p><strong>Culto Público:</strong> 19:30</p>
+          </div>
+          <div class="card">
+            <h3>Sexta-feira</h3>
+            <p><strong>Culto:</strong> 19:30</p>
+          </div>
+          <div class="card">
+            <h3>Domingo</h3>
+            <p><strong>EBD:</strong> 09:00<br><strong>Culto:</strong> 18:30</p>
+          </div>
+          <div class="card">
+            <h3>Liderança</h3>
+            <p><strong>Pr. Wellynton Nascimento</strong><br>Vice Miss. Josy Maia</p>
+          </div>
+          <div class="card">
+            <h3>Contato oficial</h3>
+            <p>WhatsApp: <a id="waCard" href="#" target="_blank" rel="noopener">(11) 96635-9306</a></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="agenda">
+      <div class="wrap">
+        <div class="title">
+          <h2>Agenda de Domingo (mensal)</h2>
+          <p>Culto 18:30 — programação por domingo do mês</p>
+        </div>
+
+        <div class="cards">
+          <div class="card" style="grid-column: span 6;">
+            <h3>1º domingo do mês</h3>
+            <p>Culto de <strong>Santa Ceia</strong></p>
+          </div>
+          <div class="card" style="grid-column: span 6;">
+            <h3>2º domingo do mês</h3>
+            <p>Culto de <strong>Missões</strong> — Projeto <strong>Pregai</strong></p>
+          </div>
+          <div class="card" style="grid-column: span 6;">
+            <h3>3º domingo do mês</h3>
+            <p>Culto com os <strong>Jovens</strong></p>
+          </div>
+          <div class="card" style="grid-column: span 6;">
+            <h3>4º domingo do mês</h3>
+            <p>Culto com as <strong>Irmãs</strong></p>
+          </div>
+          <div class="card" style="grid-column: span 12;">
+            <h3>5º domingo (quando houver)</h3>
+            <p>Culto com a <strong>Família</strong></p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="contato">
+      <div class="wrap">
+        <div class="title">
+          <h2>Localização</h2>
+          <p>Endereço e mapa</p>
+        </div>
+
+        <div class="grid">
+          <div class="panel">
+            <div class="inner">
+              <div class="item">
+                <strong>Endereço</strong>
+                <span>Rua Arari, 10 — Jardim Marilu — Carapicuíba - SP</span>
+              </div>
+              <div style="height:10px"></div>
+              <div class="item">
+                <strong>Google Maps</strong>
+                <span><a href="https://maps.app.goo.gl/booGhqXHALLQkxF56" target="_blank" rel="noopener">Abrir localização</a></span>
+              </div>
+              <div style="height:14px"></div>
+              <div class="row">
+                <a class="btn primary" id="btnWhats2" href="#" target="_blank" rel="noopener">Falar no WhatsApp</a>
+                <a class="btn" href="#horarios">Ver horários</a>
+              </div>
+            </div>
+          </div>
+
+          <div class="panel">
+            <div class="inner">
+              <div class="video">
+                <iframe
+                  title="Mapa - Assembleia de Deus Boanerges"
+                  src="https://www.google.com/maps?q=Rua%20Arari%2C%2010%20Jardim%20Marilu%20Carapicu%C3%ADba%20SP&output=embed"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"></iframe>
+              </div>
+              <p class="lead" style="margin:12px 0 0">
+                Dúvidas, pedidos de oração e informações: atendimento pelo WhatsApp oficial.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <footer>
+          <div class="wrap" style="padding:0 0 18px">
+            <div style="display:flex; gap:12px; align-items:center; flex-wrap:wrap">
+              <div class="logo"><img src="logo.jpg" alt="Logo ADB" /></div>
+              <div>
+                <strong style="color:var(--text)">Assembleia de Deus Boanerges</strong><br>
+                <small>Rua Arari, 10 — Jardim Marilu — Carapicuíba - SP</small><br>
+                <small>© <span id="year"></span> — Todos os direitos reservados.</small>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </div>
+    </section>
+  </main>
+
+  <div class="float">
+    <a id="waFloat" href="#" target="_blank" rel="noopener">
+      <span class="dot"></span>
+      WhatsApp da Igreja
+    </a>
+  </div>
+
+  <script>
+    // WhatsApp (link automático — você não precisa mexer)
+    const number = "5511966359306";
+    const msg = encodeURIComponent("Olá! Gostaria de falar com a Assembleia de Deus Boanerges.");
+    const wa = `https://wa.me/${number}?text=${msg}`;
+
+    document.getElementById("btnWhats").href = wa;
+    document.getElementById("btnWhats2").href = wa;
+    document.getElementById("waInline").href = wa;
+    document.getElementById("waCard").href = wa;
+    document.getElementById("waFloat").href = wa;
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
